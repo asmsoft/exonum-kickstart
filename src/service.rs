@@ -8,7 +8,7 @@ use exonum::{
     messages::RawTransaction,
 };
 use blockchain::{
-    transactions::project_nameTransactions,
+    transactions::{{project_name}}Transactions,
     schema::Schema,
 };
 
@@ -16,15 +16,15 @@ pub const SERVICE_ID: u16 = 128;
 pub const SERVICE_NAME: &str = "{{project_name}}";
 
 #[derive(Debug, Default)]
-pub struct project_nameService;
+pub struct {{project_name}}Service;
 
-impl project_nameService {
-    pub fn new() -> project_nameService {
-        project_nameService
+impl {{project_name}}Service {
+    pub fn new() -> {{project_name}}Service {
+        {{project_name}}Service
     }
 }
 
-impl Service for project_nameService {
+impl Service for {{project_name}}Service {
     fn service_id(&self) -> u16 {
         SERVICE_ID
     }
@@ -39,7 +39,7 @@ impl Service for project_nameService {
     }
 
     fn tx_from_raw(&self, raw: RawTransaction) -> Result<Box<dyn Transaction>, failure::Error> {
-        project_nameTransactions::tx_from_raw(raw).map(Into::into)
+        {{project_name}}Transactions::tx_from_raw(raw).map(Into::into)
     }
 
     fn wire_api(&self, builder: &mut ServiceApiBuilder) {
@@ -47,12 +47,12 @@ impl Service for project_nameService {
     }
 }
 
-impl ServiceFactory for project_nameService {
+impl ServiceFactory for {{project_name}}Service {
     fn service_name(&self) -> &str {
         SERVICE_NAME
     }
 
     fn make_service(&mut self, _: &Context) -> Box<Service> {
-        Box::new(project_nameService::new())
+        Box::new({{project_name}}Service::new())
     }
 }

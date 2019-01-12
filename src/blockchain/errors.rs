@@ -1,3 +1,7 @@
+// Workaround for `failure` see https://github.com/rust-lang-nursery/failure/issues/223 and
+// ECR-1771 for the details.
+#![allow(bare_trait_objects)]
+
 use exonum::blockchain::ExecutionError;
 
 #[derive(Debug, Fail)]

@@ -1,3 +1,7 @@
+// Workaround for `failure` see https://github.com/rust-lang-nursery/failure/issues/223 and
+// ECR-1771 for the details.
+#![allow(bare_trait_objects)]
+
 use exonum::{
     blockchain::{ExecutionResult, Transaction, TransactionContext},
     crypto::{PublicKey, SecretKey},
@@ -50,7 +54,7 @@ impl TxStore {
 
 /// Transaction group.
 #[derive(Serialize, Deserialize, Clone, Debug, TransactionSet)]
-pub enum project_nameTransactions {
+pub enum {{project_name}}Transactions {
     /// Store tx.
     Store(TxStore)
 }

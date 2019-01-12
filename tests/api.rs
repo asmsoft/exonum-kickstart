@@ -1,5 +1,5 @@
 extern crate exonum;
-extern crate project_name;
+extern crate {{project_name}};
 extern crate exonum_testkit;
 extern crate exonum_configuration;
 #[macro_use]
@@ -20,9 +20,9 @@ use exonum::{
     messages::{RawTransaction, Signed},
 };
 use exonum_testkit::ApiKind;
-use project_name::{
+use {{project_name}}::{
     SERVICE_NAME,
-    project_nameService,
+    {{project_name}}Service,
     blockchain::transactions::{TxStore},
     api::storage::LoadRequest
 };
@@ -36,11 +36,11 @@ fn store_test() {
     assert_eq!("test_val", api.load("test_key"));
 }
 
-struct project_nameApi {
+struct {{project_name}}Api {
     pub inner: TestKitApi,
 }
 
-impl project_nameApi {
+impl {{project_name}}Api {
     fn store(&self, key: &str, val: &str) -> Signed<RawTransaction> {
         let (pubkey, sec) = crypto::gen_keypair();
         let tx = TxStore::sign(key, val, &pubkey, &sec);
@@ -81,12 +81,12 @@ impl project_nameApi {
     }
 }
 
-fn create_testkit() -> (TestKit, project_nameApi) {
+fn create_testkit() -> (TestKit, {{project_name}}Api) {
     let testkit = TestKitBuilder::validator()
-        .with_service(project_nameService)
+        .with_service({{project_name}}Service)
         .create();
 
-    let api = project_nameApi {
+    let api = {{project_name}}Api {
         inner: testkit.api(),
     };
     (testkit, api)

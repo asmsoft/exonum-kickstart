@@ -30,7 +30,7 @@ impl<T> Schema<T> where T: AsRef<Snapshot> {
     }
 
     pub fn storage(&self) -> ProofMapIndex<&T, Hash, String> {
-        ProofMapIndex::new("project_name.store", &self.view)
+        ProofMapIndex::new("{{project_name}}.storage", &self.view)
     }
 
     pub fn state_hash(&self) -> Vec<Hash> {
@@ -44,6 +44,6 @@ impl<'a> Schema<&'a mut Fork> {
     }
 
     pub fn storage_mut(&mut self) -> ProofMapIndex<&mut Fork, Hash, String> {
-        ProofMapIndex::new("project_name.store", &mut self.view)
+        ProofMapIndex::new("{{project_name}}.storage", &mut self.view)
     }
 }

@@ -2,12 +2,14 @@ name = "Exonum"
 description = "A template of Exonum blockchain service"
 kickstart_version = 1
 ignore = [
+    "Cargo.lock",
     "README.md",
+    "target",
 ]
 
 [[variables]]
 name = "project_name"
-default = "my-project"
+default = "myproject"
 prompt = "What is the name of this project (lowercase)?"
 validation = "^([a-z][a-z0-9_]+)$"
 

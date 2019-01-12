@@ -1,11 +1,15 @@
 [package]
-name = "project_name"
+name = "{{project_name}}"
 version = "0.1.0"
 authors = ["{{author}} <{{email}}>"]
 description = "{{description}}"
 
 [dependencies]
 exonum = "0.10.1"
+{%- if use_exonum_time %}
+exonum-time = "0.10.0"
+chrono = { version = "=0.4.6", features = ["serde"] }
+{%- endif %}
 exonum-configuration = "0.10"
 exonum-derive = "0.10"
 
