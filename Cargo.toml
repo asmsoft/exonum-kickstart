@@ -1,0 +1,29 @@
+[package]
+name = "project_name"
+version = "0.1.0"
+authors = ["{{author}} <{{email}}>"]
+description = "{{description}}"
+
+[dependencies]
+exonum = "0.10.1"
+exonum-configuration = "0.10"
+exonum-derive = "0.10"
+
+serde = "1.0.0"
+serde_derive = "1.0.0"
+failure = "0.1.5"
+protobuf = "2.2.0"
+
+[dev-dependencies]
+exonum-testkit = "0.10.1"
+serde_json = "1.0"
+pretty_assertions = "=0.5.1"
+assert_matches = "1.2.0"
+hex = "=0.3.2"
+
+[build-dependencies]
+exonum-build = "0.10.0"
+
+[features]
+default = ["with-serde"]
+with-serde = []

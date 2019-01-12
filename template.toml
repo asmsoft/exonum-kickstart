@@ -1,0 +1,38 @@
+name = "Exonum"
+description = "A template of Exonum blockchain service"
+kickstart_version = 1
+ignore = [
+    "README.md",
+]
+
+[[variables]]
+name = "project_name"
+default = "my-project"
+prompt = "What is the name of this project (lowercase)?"
+validation = "^([a-z][a-z0-9_]+)$"
+
+[[variables]]
+name = "description"
+default = "An Exonum service"
+prompt = "A short description of the project?"
+
+[[variables]]
+name = "author"
+default = "No One"
+prompt = "What is your name?"
+
+[[variables]]
+name = "email"
+default = "no@one.com"
+prompt = "What is your email?"
+
+[[variables]]
+name = "service_id"
+default = "128"
+prompt = "What is the service ID will be?"
+validation = "^([0-9]+)$"
+
+[[variables]]
+name = "use_exonum_time"
+default = false
+prompt = "Do you want to use time oracle (exonum_time)?"
