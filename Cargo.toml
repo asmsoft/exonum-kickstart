@@ -5,13 +5,13 @@ authors = ["{{author}} <{{email}}>"]
 description = "{{description}}"
 
 [dependencies]
-exonum = "0.10.1"
+exonum = "0.10.2"
 {%- if use_exonum_time %}
-exonum-time = "0.10.0"
+exonum-time = "0.10.1"
 chrono = { version = "=0.4.6", features = ["serde"] }
 {%- endif %}
-exonum-configuration = "0.10"
-exonum-derive = "0.10"
+exonum-configuration = "0.10.0"
+exonum-derive = "0.10.0"
 
 serde = "1.0.0"
 serde_derive = "1.0.0"
